@@ -182,7 +182,7 @@ cp .env.example .env
 
 | Variable | Required | Default | Description |
 |---|---|---|---|
-| `GROQ_API_KEY` | ✅ | — | Groq LLM API key |
+| `GROQ_API_KEY` | -- | — | Groq LLM API key |
 | `DATA_DIR` | | `./data` | Root directory for data files |
 | `DB_PATH` | | `./data/sessions.db` | SQLite session store path |
 | `LOG_FORMAT` | | `console` | `console` or `json` |
@@ -297,7 +297,3 @@ All database queries are capped at `MAX_ROWS_RETURNED` (default: 1000). This pre
 `observability/tracing.py` instruments the orchestrator, LLM client, and MCP manager with OpenTelemetry spans. A no-op fallback is used when no OTLP exporter is configured, so the application runs without any tracing infrastructure.
 
 ---
-
-## License
-
-This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
