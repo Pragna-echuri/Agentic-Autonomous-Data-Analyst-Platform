@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "python",
+      "args": ["mcp_servers/filesystem_server.py"],
+      "transport": "stdio",
+      "description": "Read/write CSVs, saved plots, and reports in data/ and outputs/ directories"
+    },
+    "database": {
+      "command": "python",
+      "args": ["mcp_servers/sqlite_server.py"],
+      "transport": "stdio",
+      "description": "Query and manage the SQLite database (example.db)"
+    }
+  }
+}

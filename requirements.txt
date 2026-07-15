@@ -1,0 +1,51 @@
+# ═══════════════════════════════════════════════════════════════════════
+# Data Analyst Platform v2.0 — Python Dependencies
+# ═══════════════════════════════════════════════════════════════════════
+
+# ── Core Framework ───────────────────────────────────────────────────
+pydantic>=2.5.0
+pydantic-settings>=2.1.0
+
+# ── MCP Protocol ─────────────────────────────────────────────────────
+mcp>=1.0.0
+
+# ── LLM Provider ─────────────────────────────────────────────────────
+groq>=0.5.0
+
+# ── Web Framework ────────────────────────────────────────────────────
+fastapi>=0.109.0
+uvicorn[standard]>=0.25.0
+
+# ── UI ───────────────────────────────────────────────────────────────
+streamlit>=1.30.0
+
+# ── Data Processing ──────────────────────────────────────────────────
+pandas>=2.0.0
+numpy>=1.26.0
+
+# ── Visualization ────────────────────────────────────────────────────
+matplotlib>=3.8.0
+seaborn>=0.13.0
+
+# ── Observability ────────────────────────────────────────────────────
+structlog>=24.1.0
+
+# ── Utilities ────────────────────────────────────────────────────────
+python-dotenv>=1.0.0
+
+# ── Optional: Enhanced Ingestion ─────────────────────────────────────
+# openpyxl>=3.1.0        # Excel (.xlsx) support
+# pdfplumber>=0.11.0     # PDF text extraction
+# pyarrow>=14.0.0        # Parquet/Feather support
+# pytesseract>=0.3.10    # Image OCR (requires Tesseract binary)
+# easyocr>=1.7.0         # Alternative image OCR (no binary needed)
+
+# ── Optional: Distributed Tracing ────────────────────────────────────
+# opentelemetry-api>=1.22.0
+# opentelemetry-sdk>=1.22.0
+
+# ── Testing (dev only) ──────────────────────────────────────────────
+# pytest>=7.4.0
+# pytest-asyncio>=0.23.0
+# pytest-cov>=4.1.0
+# httpx>=0.27.0           # For FastAPI TestClient

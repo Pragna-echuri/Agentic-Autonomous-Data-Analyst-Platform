@@ -1,0 +1,52 @@
+# ═══════════════════════════════════════════════════════════════════════
+# Data Analyst Platform v2.0 — Docker Compose
+# ═══════════════════════════════════════════════════════════════════════
+#
+# Usage:
+#   docker-compose up              # Start all services
+#   docker-compose up api          # Start API only
+#   docker-compose up streamlit    # Start Streamlit only
+#
+# ═══════════════════════════════════════════════════════════════════════
+
+services:
+  # FastAPI backend
+  api:
+    build: .
+    command: api
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    volumes:
+      - ./data:/app/data
+      - ./outputs:/app/outputs
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    restart: unless-stopped
+
+  # Streamlit frontend
+  streamlit:
+    build: .
+    command: streamlit
+    ports:
+      - "8501:8501"
+    env_file:
+      - .env
+    environment:
+      - API_HOST=api
+      - API_PORT=8000
+    volumes:
+      - ./data:/app/data
+      - ./outputs:/app/outputs
+    depends_on:
+      api:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  data:
+  outputs:
